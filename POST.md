@@ -1,7 +1,7 @@
 # After Reboot
 After booting your freshly installed Arch Linux, we'll be downloading some packages and do some configuration. Remember to use `sudo` everytime you need root access, especially `pacman`.
 ## Connect to the internet
-We had `network-manager` previously installed and enabled the service. To connect to the internet using the tui:
+We had `networkmanager` previously installed and enabled the service. To connect to the internet using the tui:
 ```
 $ sudo nmtui
 ```
@@ -20,8 +20,12 @@ You can use `pulseaudio` but `pipewire` is recommended:
 ```
 $ sudo pacman -S pipewire wireplumber pipewire-audio pipewire-pulse
 ```
+Then enable `pipewire-pulse.service`:
+```
+$ systemctl --user enable --now pipewire-pulse
+```
 ## AUR helpers
-I'll be using `paru`, to install it make sure you've installed `git`:
+I'll be using `paru`. Make sure you've installed `git`:
 ```
 $ sudo pacman -S --needed git
 ```
@@ -47,7 +51,6 @@ $ sudo pacman -S --needed \
     `# archieve         ` p7zip \
     `# audio effects    ` easyeffects \
     `# brightness       ` brightnessctl \
-    `# browsers         ` firefox \
     `# clipboard        ` wl-clipboard \
     `# editor           ` vim \
     `# file manager     ` nemo \
@@ -64,9 +67,10 @@ $ sudo pacman -S --needed \
 It's a great time to try out `paru`:
 ```
 $ paru -S \
-    `# browsers         ` librewolf \
+    `# browsers         ` google-chrome \
     `# code editor      ` vscodium-bin \
     `# fetch            ` nitch \
+    `# firmware         ` mkinitcpio-firmware \
     `# launchers        ` rofi-lbonn-wayland-git \
     `# tablet driver    ` opentabletdriver \
     `# u know dis       ` spotify discord whatsapp-nativefier

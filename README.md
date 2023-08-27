@@ -139,9 +139,9 @@ I'll be using `systemd-boot` for my bootloader, you can also use this if your sy
     options root=/dev/sda3 rw
     ```
 ## Reboot
-Before rebooting, make sure to install `network-manager` because you will need them for internet connection:
+Before rebooting, make sure to install `networkmanager` because you will need them for internet connection:
 ```
-# pacman -Syu network-manager
+# pacman -Syu networkmanager
 ```
 Also enable `NetworkManager.service`:
 ```
