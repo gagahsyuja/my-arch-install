@@ -62,7 +62,8 @@ $ sudo pacman -S --needed \
     `# status bars      ` waybar \
     `# terminal         ` kitty \
     `# video players    ` mpv \
-    `# wallpaper        ` swaybg
+    `# wallpaper        ` swaybg \
+    `# ntfs driver      ` ntfs-3g
 ```
 It's a great time to try out `paru`:
 ```
