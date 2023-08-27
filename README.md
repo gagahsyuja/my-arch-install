@@ -1,7 +1,7 @@
 # My Arch Install
 This is my personal Linux installation. I'll be using `Arch Linux` and `Wayland` for it's display server.
 
-Assuming you've booted the live environment, got the internet working, and did some partitioning, you can continue following this guide. If not, you can do so by reading the [`Wiki`](https://wiki.archlinux.org/title/installation_guide) beforehand.
+Assuming you've booted the live environment, got the internet working, and did some partitioning, you can continue following this guide. If not, you can do so by reading the [Wiki](https://wiki.archlinux.org/title/installation_guide) beforehand.
 
 ## Update the system clock
 Use `timedatectl` to ensure the system clock is accurate:
@@ -36,9 +36,9 @@ If you create a `swap` volume, you can also enable it. For example `/dev/sda2` w
 # swapon /dev/sda2
 ```
 ## Install essential packages
-Use the `pacstrap` script to install the `base` and `base-devel` package, Linux kernel, firmware for common hardware, microcode for our processors, and also a text editor. I'll be using `linux-lts` kernel, `intel-ucode` because my processors are Intel, and `vim` as my editor:
+Use the `pacstrap` script to install the `base` and `base-devel` package, Linux kernel and its headers, firmware for common hardware, microcode for our processors, and also a text editor. I'll be using `linux-lts` kernel, `intel-ucode` because my processors are Intel, and `vim` as my editor:
 ```
-# pacstrap /mnt base base-devel linux-lts linux-firmware intel-ucode vim
+# pacstrap /mnt base base-devel linux-lts linux-lts-headers linux-firmware intel-ucode vim
 ```
 ## Generate an fstab file
 ```
@@ -139,7 +139,7 @@ I'll be using `systemd-boot` for my bootloader, you can also use this if your sy
     options root=/dev/sda3 rw
     ```
 ## Reboot
-Before rebooting, make sure to install `network-manager` because you will need them for internet connection.
+Before rebooting, make sure to install `network-manager` because you will need them for internet connection:
 ```
 # pacman -Syu network-manager
 ```
@@ -147,4 +147,6 @@ Also enable `NetworkManager.service`:
 ```
 # systemctl enable NetworkManager
 ```
-Then you can safely reboot to your freshly installed Arch Linux.
+Then you can safely reboot to your freshly installed Arch Linux, after exiting the chroot of course.
+
+## [After reboot](./POST.md)
