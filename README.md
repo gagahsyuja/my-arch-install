@@ -61,11 +61,6 @@ Run `hwclock` to generate `/etc/adjtime`:
 ```
 # hwclock --systohc
 ```
-Also change the hardware clock time standard to localtime:
-```
-# timedatectl set-local-rtc 1
-```
-By doing so, Windows time will not be messed up. However, it is recommended to configure Windows to use UTC, rather than Linux to use localtime. You can do it by reading [UTC in Microsoft Windows](https://wiki.archlinux.org/title/System_time#UTC_in_Microsoft_Windows).
 ## Localization
 Edit `/etc/locale.gen` and uncomment `en_US.UTF-8 UTF-8`, then generate the locales by running:
 ```
@@ -108,7 +103,7 @@ EDITOR=vim visudo
 ```
 To allow members of group `wheel` sudo access, uncomment this line:
 ```
-%wheel      ALL=(ALL:ALL) ALL
+%wheel ALL=(ALL:ALL) ALL
 ```
 ## Enable multilib
 To enable multilib repository, uncomment the `[multilib]` section in `/etc/pacman.conf`:

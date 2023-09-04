@@ -5,6 +5,11 @@ We had `networkmanager` previously installed and enabled the service. To connect
 ```
 $ sudo nmtui
 ```
+## Change hardware clock to localtime
+```
+# timedatectl set-local-rtc 1
+```
+By doing this, Windows time will not be messed up. However, it is recommended to configure Windows to use UTC, rather than Linux to use localtime. You can do it by reading [UTC in Microsoft Windows](https://wiki.archlinux.org/title/System_time#UTC_in_Microsoft_Windows).
 ## Graphical user interface
 As I said in the beginning, we'll be using `wayland` as our display server. We also need compositor, `hyprland` is cool but I'll be using `sway` instead. Install the compositor of your choice and its dependencies:
 ```
@@ -18,7 +23,7 @@ $ sudo pacman -S xdg-user-dirs && xdg-user-dirs-update
 ## Audio drivers
 You can use `pulseaudio` but `pipewire` is recommended:
 ```
-$ sudo pacman -S pipewire wireplumber pipewire-audio pipewire-pulse
+$ sudo pacman -S pipewire pipewire-pulse wireplumber
 ```
 Then enable `pipewire-pulse.service`:
 ```
@@ -49,7 +54,7 @@ I need this and you may not, so choose wisely:
 ```
 $ sudo pacman -S --needed \
     `# archieve         ` p7zip \
-    `# audio effects    ` easyeffects \
+    `# audio effects    ` calf easyeffects \
     `# brightness       ` brightnessctl \
     `# clipboard        ` wl-clipboard \
     `# editor           ` vim \
@@ -58,6 +63,7 @@ $ sudo pacman -S --needed \
     `# image viewers    ` swayimg \
     `# manual           ` tldr \
     `# screenshots      ` slurp grim \
+    `# spotify          ` spotify-launcher \
     `# shell            ` fish starship \
     `# status bars      ` waybar \
     `# terminal         ` kitty \
@@ -74,5 +80,5 @@ $ paru -S \
     `# firmware         ` mkinitcpio-firmware \
     `# launchers        ` rofi-lbonn-wayland-git \
     `# tablet driver    ` opentabletdriver \
-    `# u know dis       ` spotify discord whatsapp-nativefier
+    `# social           ` discord whatsapp-nativefier-notray-hook
 ```
