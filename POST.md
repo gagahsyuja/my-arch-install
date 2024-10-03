@@ -5,6 +5,10 @@ We had `networkmanager` previously installed and enabled the service. To connect
 ```
 $ sudo nmtui
 ```
+## Start automatic time synchronization
+```
+# timedatectl set-ntp true
+```
 ## Change hardware clock to localtime
 ```
 # timedatectl set-local-rtc 1
