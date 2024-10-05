@@ -42,7 +42,7 @@ Use the `pacstrap` script to install the `base` and `base-devel` package, Linux 
 ```
 ## Generate an fstab file
 ```
-# genfstab -U >> /mnt/etc/fstab
+# genfstab -U /mnt >> /mnt/etc/fstab
 ```
 You can see the generated files using `cat`:
 ```
